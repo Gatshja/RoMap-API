@@ -36,7 +36,7 @@ app.get("/map", async (req, res) => {
         const creditWidth = 400;
         const creditHeight = 35;
         const left = mapWidth - creditWidth - 5; // 5px padding from right
-        const top = mapHeight - creditHeight - 5; // 5px padding from bottom
+        const top = mapHeight - creditHeight - 3; // 5px padding from bottom
 
         // Composite the new credit text onto the map
         image = image.composite([

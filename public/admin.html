@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RoMap Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .login-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 8px;
+            margin: 5px 0;
+            width: 300px;
+        }
+        button {
+            padding: 8px 16px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .login-button {
+            margin-top: 10px;
+        }
+        .api-key {
+            padding: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+        .key-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .suspended {
+            background-color: #ffeeee;
+        }
+        .admin-key {
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+        }
+        .key-actions {
+            margin-top: 10px;
+        }
+        .revoke-button {
+            background-color: #f44336;
+        }
+        .revoke-button:hover {
+            background-color: #d32f2f;
+        }
+        .suspend-button {
+            background-color: #ff9800;
+        }
+        .suspend-button:hover {
+            background-color: #e68a00;
+        }
+        .activate-button {
+            background-color: #2196F3;
+        }
+        .activate-button:hover {
+            background-color: #0b7dda;
+        }
+        .maintenance-container {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+        }
+        .maintenance-button {
+            background-color: #ff9800;
+        }
+        .maintenance-button.active {
+            background-color: #f44336;
+        }
+        .status-indicator {
+            margin-left: 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+        .admin-key-option {
+            margin: 10px 0;
+        }
+        .admin-key-option input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        .admin-key-option label {
+            display: inline;
+        }
+        .admin-badge {
+            display: inline-block;
+            background-color: #1890ff;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+        .maintenance-controls {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        #maintenance-button {
+            padding: 8px 16px;
+            margin-right: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #maintenance-button.active {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .status-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 50px;
+            text-align: center;
+            padding: 4px 8px;
+            margin-left: 5px;
+            border-radius: 12px;
+            font-weight: bold;
+            color: white;
+            background-color: #28a745;
+        }
+        .admin-key .key-name::after {
+            content: ' (Admin)';
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .maintenance-message {
+            color: #dc3545;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .suspended-message {
+            color: #dc3545;
+            font-style: italic;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>RoMap API Admin Dashboard</h1>
+
+    <div id="login-section" class="login-container">
+        <h2>Login</h2>
+        <div>
+            <input type="text" id="username" placeholder="Username" />
+        </div>
+        <div>
+            <input type="password" id="password" placeholder="Password" />
+        </div>
+        <button id="login-button" class="login-button">Login</button>
+    </div>
+
+    <div id="admin-section" style="display: none;">
+        <h2>Generate API Key</h2>
+        <div>
+            <input type="text" id="key-name" placeholder="Key Name (e.g., Production, Testing)" />
+            <input type="checkbox" id="admin-key-checkbox">
+            <label for="admin-key-checkbox">Make Admin Key</label>
+            <button id="generate-button">Generate API Key</button>
+        </div>
+
+        <div id="new-key-container" style="display: none;">
+            <h3>New API Key Generated:</h3>
+            <div class="api-key" id="new-key"></div>
+            <p><strong>Important:</strong> Copy this key now. For security reasons, it will not be displayed again.</p>
+        </div>
+
+        <h2>Existing API Keys</h2>
+        <div id="keys-container">
+            <!-- API keys will be listed here -->
+        </div>
+
+        <div class="maintenance-container">
+            <h2>Maintenance Mode</h2>
+            <div class="toggle-container">
+                <button id="maintenance-button" class="maintenance-button">Toggle Maintenance Mode</button>
+                <span id="maintenance-status" class="status-indicator">Off</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if already logged in (session)
+            checkAuthStatus();
+
+            // Login button handler
+            document.getElementById('login-button').addEventListener('click', login);
+
+            // Generate API key button handler
+            document.getElementById('generate-button').addEventListener('click', async () => {
+                const keyName = document.getElementById('key-name').value.trim();
+                const isAdmin = document.getElementById('admin-key-checkbox').checked;
+
+                if (!keyName) {
+                    alert('Please enter a name for the API key');
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/admin/generate-key', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ name: keyName, isAdmin })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        document.getElementById('new-key-container').style.display = 'block';
+                        document.getElementById('new-key').textContent = data.apiKey;
+                        loadApiKeys(); // Refresh the key list
+                    } else {
+                        alert('Error generating key: ' + (data.error || 'Unknown error'));
+                    }
+                } catch (error) {
+                    alert('Error connecting to server');
+                }
+            });
+
+
+            // Maintenance Mode Toggle
+            document.getElementById('maintenance-button').addEventListener('click', toggleMaintenanceMode);
+
+            //Initial Maintenance Mode Check
+            checkMaintenanceMode();
+
+        });
+
+        async function checkAuthStatus() {
+            try {
+                const response = await fetch('/admin/keys');
+
+                if (response.ok) {
+                    // User is authenticated
+                    showAdminSection();
+                    loadApiKeys();
+                } else {
+                    // User is not authenticated
+                    showLoginSection();
+                }
+            } catch (error) {
+                showLoginSection();
+            }
+        }
+
+        function showLoginSection() {
+            document.getElementById('login-section').style.display = 'block';
+            document.getElementById('admin-section').style.display = 'none';
+        }
+
+        function showAdminSection() {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('admin-section').style.display = 'block';
+        }
+
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/admin/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    showAdminSection();
+                    loadApiKeys();
+                } else {
+                    alert('Login failed. Please check your credentials.');
+                }
+            } catch (error) {
+                alert('Error connecting to server');
+            }
+        }
+
+        async function loadApiKeys() {
+            try {
+                const response = await fetch('/admin/keys');
+                const data = await response.json();
+                const maintenanceMode = await checkMaintenance(); //Added to check maintenance mode
+
+
+                if (response.ok) {
+                    const keysContainer = document.getElementById('keys-container');
+                    keysContainer.innerHTML = '';
+
+                    if (data.keys.length === 0) {
+                        keysContainer.innerHTML = '<p>No API keys found</p>';
+                        return;
+                    }
+
+                    data.keys.forEach(key => {
+                        const keyItem = document.createElement('div');
+                        keyItem.className = `key-item ${key.suspended ? 'suspended' : ''} ${key.isAdmin ? 'admin-key' : ''}`;
+
+                        const keyMessage = maintenanceMode ? "<span class='maintenance-message'>Under maintenance. Our team is fixing API Key</span>" : "";
+                        const suspendedMessage = key.suspended ? "<span class='suspended-message'>Suspended</span>" : "";
+
+                        keyItem.innerHTML = `
+                            <div><strong>ID:</strong> ${key.id}</div>
+                            <div><strong>Name:</strong> ${key.name} ${key.isAdmin ? '<span class="admin-badge">ADMIN</span>' : ''}</div>
+                            <div><strong>Created:</strong> ${new Date(key.created).toLocaleString()}</div>
+                            <div><strong>Status:</strong> ${key.suspended ? 'Suspended' : 'Active'}</div>
+                            <div><strong>Type:</strong> ${key.isAdmin ? 'Admin (Unlimited rate limit, full access)' : 'Standard (1,000 requests/day)'}</div>
+                            <div>${keyMessage}</div>
+                            <div>${suspendedMessage}</div>
+                            <div class="key-actions">
+                                <button class="revoke-button" onclick="revokeKey('${key.id}')">Revoke</button>
+                                ${key.suspended 
+                                    ? `<button class="activate-button" onclick="toggleKeySuspension('${key.id}', false)">Activate</button>`
+                                    : `<button class="suspend-button" onclick="toggleKeySuspension('${key.id}', true)">Suspend</button>`
+                                }
+                            </div>
+                        `;
+
+                        keysContainer.appendChild(keyItem);
+                    });
+                } else {
+                    alert('Error loading keys: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                alert('Error connecting to server');
+            }
+        }
+
+        async function revokeKey(keyId) {
+            try {
+                const response = await fetch(`/admin/revoke-key/${keyId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    alert('API key revoked successfully');
+                    loadApiKeys(); // Refresh the list
+                } else {
+                    const data = await response.json();
+                    alert('Error revoking key: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                alert('Error connecting to server');
+            }
+        }
+
+        async function toggleKeySuspension(keyId, suspend) {
+            try {
+                const endpoint = suspend ? `/admin/suspend-key/${keyId}` : `/admin/activate-key/${keyId}`;
+                const response = await fetch(endpoint, {
+                    method: 'PUT'
+                });
+
+                if (response.ok) {
+                    alert(`API key ${suspend ? 'suspended' : 'activated'} successfully`);
+                    loadApiKeys();
+                } else {
+                    const data = await response.json();
+                    alert(`Error ${suspend ? 'suspending' : 'activating'} key: ` + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                alert('Error connecting to server');
+            }
+        }
+
+        //Simulate Maintenance Mode - Replace with actual server-side logic
+        let maintenanceMode = false;
+        async function toggleMaintenanceMode() {
+            try {
+                const newState = !maintenanceMode;
+                const response = await fetch('/admin/maintenance', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ enabled: newState })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    maintenanceMode = newState;
+                    const button = document.getElementById('maintenance-button');
+                    const statusIndicator = document.getElementById('maintenance-status');
+                    
+                    if (maintenanceMode) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                    
+                    statusIndicator.textContent = maintenanceMode ? 'On' : 'Off';
+                    statusIndicator.style.backgroundColor = maintenanceMode ? '#dc3545' : '#28a745';
+                    loadApiKeys(); // Reload keys after maintenance mode change
+                } else {
+                    alert('Error toggling maintenance mode: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error toggling maintenance mode:', error);
+                alert('Error connecting to server');
+            }
+        }
+
+        async function checkMaintenanceMode() {
+            try {
+                const isMaintenanceOn = await checkMaintenance();
+                const button = document.getElementById('maintenance-button');
+                const statusIndicator = document.getElementById('maintenance-status');
+                
+                if (isMaintenanceOn) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+                
+                statusIndicator.textContent = isMaintenanceOn ? 'On' : 'Off';
+                statusIndicator.style.backgroundColor = isMaintenanceOn ? '#dc3545' : '#28a745';
+            } catch (error) {
+                console.error("Error checking maintenance status:", error);
+                alert("Error checking maintenance status");
+            }
+        }
+
+        async function checkMaintenance() {
+            try {
+                const response = await fetch('/admin/maintenance');
+                if (response.ok) {
+                    const data = await response.json();
+                    maintenanceMode = data.maintenanceMode;
+                    return maintenanceMode;
+                }
+                return false;
+            } catch(error) {
+                console.error('Error checking maintenance:', error);
+                return false; // Assume maintenance is OFF if server is unreachable
+            }
+        }
+    </script>
+</body>
+</html>

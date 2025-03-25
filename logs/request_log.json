@@ -1,0 +1,815 @@
+{
+  "requests": [
+    {
+      "timestamp": "2025-03-25T06:05:50.746Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:05:54.474Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=580431a6f25018f651d9351fa4b3d69128ebd243dfe63465ca927fef1f26f0bf",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 6,
+      "cache": "HIT"
+    },
+    {
+      "timestamp": "2025-03-25T06:06:49.057Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 3
+    },
+    {
+      "timestamp": "2025-03-25T06:06:49.187Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:08:27.626Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 16
+    },
+    {
+      "timestamp": "2025-03-25T06:08:27.633Z",
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:08:27.820Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:11:42.267Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 9
+    },
+    {
+      "timestamp": "2025-03-25T06:11:42.454Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:11:42.664Z",
+      "method": "GET",
+      "path": "/",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 5
+    },
+    {
+      "timestamp": "2025-03-25T06:11:53.803Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:12:00.348Z",
+      "method": "POST",
+      "path": "/admin/login",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:12:00.454Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:12:04.404Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=580431a6f25018f651d9351fa4b3d69128ebd243dfe63465ca927fef1f26f0bf",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 204,
+      "cache": "MISS"
+    },
+    {
+      "timestamp": "2025-03-25T06:12:07.615Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=580431a6f25018f651d9351fa4b3d69128ebd243dfe63465ca927fef1f26f0bf",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2,
+      "cache": "HIT"
+    },
+    {
+      "timestamp": "2025-03-25T06:12:08.376Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=580431a6f25018f651d9351fa4b3d69128ebd243dfe63465ca927fef1f26f0bf",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2,
+      "cache": "HIT"
+    },
+    {
+      "timestamp": "2025-03-25T06:12:08.861Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=580431a6f25018f651d9351fa4b3d69128ebd243dfe63465ca927fef1f26f0bf",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2,
+      "cache": "HIT"
+    },
+    {
+      "timestamp": "2025-03-25T06:12:33.734Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=580431a6f25018f651d9351fa4b3d69128ebd243dfe63465ca927fef1f26f0bf",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2,
+      "cache": "HIT"
+    },
+    {
+      "timestamp": "2025-03-25T06:12:52.651Z",
+      "method": "POST",
+      "path": "/admin/generate-key",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:12:52.775Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:13:00.377Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=580431a6f25018f651d9351fa4b3d69128ebd243dfe63465ca927fef1f26f0bf",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2,
+      "cache": "HIT"
+    },
+    {
+      "timestamp": "2025-03-25T06:13:00.862Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=580431a6f25018f651d9351fa4b3d69128ebd243dfe63465ca927fef1f26f0bf",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2,
+      "cache": "HIT"
+    },
+    {
+      "timestamp": "2025-03-25T06:13:01.370Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=580431a6f25018f651d9351fa4b3d69128ebd243dfe63465ca927fef1f26f0bf",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2,
+      "cache": "HIT"
+    },
+    {
+      "timestamp": "2025-03-25T06:13:02.104Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:13:02.213Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:13:04.688Z",
+      "method": "DELETE",
+      "path": "/admin/revoke-key/d8719c9311fb50d5",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:13:05.575Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:13:07.306Z",
+      "method": "DELETE",
+      "path": "/admin/revoke-key/8d11d34408587604",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:13:08.122Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:16:20.914Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 19
+    },
+    {
+      "timestamp": "2025-03-25T06:16:21.171Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:16:21.295Z",
+      "method": "GET",
+      "path": "/",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 9
+    },
+    {
+      "timestamp": "2025-03-25T06:21:41.512Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:21:41.556Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:21:46.533Z",
+      "method": "POST",
+      "path": "/admin/login",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:21:46.644Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 3
+    },
+    {
+      "timestamp": "2025-03-25T06:21:46.755Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:21:48.776Z",
+      "method": "POST",
+      "path": "/admin/maintenance",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:21:48.884Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:21:48.992Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:22:01.672Z",
+      "method": "POST",
+      "path": "/admin/generate-key",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:22:01.788Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:22:01.898Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:22:15.974Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=6aed4ffb30ed55effe3f016774e16ea955cb0a39516ab94f08ff92417642e336",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 176,
+      "cache": "MISS"
+    },
+    {
+      "timestamp": "2025-03-25T06:22:20.720Z",
+      "method": "DELETE",
+      "path": "/admin/maintenance",
+      "status": 404,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:22:22.945Z",
+      "method": "DELETE",
+      "path": "/admin/maintenance",
+      "status": 404,
+      "ip": "172.31.128.108",
+      "responseTime": 3
+    },
+    {
+      "timestamp": "2025-03-25T06:24:58.989Z",
+      "method": "GET",
+      "path": "/",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:24:59.064Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:24:59.169Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:25:34.078Z",
+      "method": "DELETE",
+      "path": "/admin/maintenance",
+      "status": 404,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:25:36.987Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:25:37.000Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:25:37.091Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:25:37.195Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:25:38.750Z",
+      "method": "POST",
+      "path": "/admin/maintenance",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:25:38.854Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:25:38.955Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:25:39.625Z",
+      "method": "DELETE",
+      "path": "/admin/maintenance",
+      "status": 404,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:25:40.097Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:25:40.099Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:25:40.203Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:25:40.311Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:27:46.957Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 7
+    },
+    {
+      "timestamp": "2025-03-25T06:27:47.095Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:27:47.104Z",
+      "method": "GET",
+      "path": "/",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:27:49.243Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:27:49.245Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:28:18.982Z",
+      "method": "POST",
+      "path": "/admin/login",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:28:25.257Z",
+      "method": "POST",
+      "path": "/admin/login",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:28:33.151Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:28:33.158Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:28:38.570Z",
+      "method": "POST",
+      "path": "/admin/login",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:28:42.112Z",
+      "method": "POST",
+      "path": "/admin/login",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:30:44.364Z",
+      "method": "GET",
+      "path": "/favicon.ico",
+      "status": 404,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:00.533Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:00.598Z",
+      "method": "GET",
+      "path": "/",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:00.674Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:22.786Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 6
+    },
+    {
+      "timestamp": "2025-03-25T06:31:22.827Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:22.880Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:22.888Z",
+      "method": "GET",
+      "path": "/",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:31:22.981Z",
+      "method": "GET",
+      "path": "/map",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:28.875Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:31:28.878Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 401,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:31:33.744Z",
+      "method": "POST",
+      "path": "/admin/login",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:33.852Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 3
+    },
+    {
+      "timestamp": "2025-03-25T06:31:33.957Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:31:37.048Z",
+      "method": "POST",
+      "path": "/admin/maintenance",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 2
+    },
+    {
+      "timestamp": "2025-03-25T06:31:37.161Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:37.264Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:38.646Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=6aed4ffb30ed55effe3f016774e16ea955cb0a39516ab94f08ff92417642e336",
+      "status": 503,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:31:39.546Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=6aed4ffb30ed55effe3f016774e16ea955cb0a39516ab94f08ff92417642e336",
+      "status": 503,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:31:40.254Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=6aed4ffb30ed55effe3f016774e16ea955cb0a39516ab94f08ff92417642e336",
+      "status": 503,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:31:45.062Z",
+      "method": "POST",
+      "path": "/admin/maintenance",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:45.166Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:45.269Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:47.535Z",
+      "method": "GET",
+      "path": "/map?lat=40.7128&lon=-74.0060&zoom=14&width=1280&height=720&apikey=6aed4ffb30ed55effe3f016774e16ea955cb0a39516ab94f08ff92417642e336",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 135,
+      "cache": "MISS"
+    },
+    {
+      "timestamp": "2025-03-25T06:31:51.798Z",
+      "method": "DELETE",
+      "path": "/admin/revoke-key/0802a6debcce287e",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    },
+    {
+      "timestamp": "2025-03-25T06:31:52.783Z",
+      "method": "GET",
+      "path": "/admin/keys",
+      "status": 200,
+      "ip": "172.31.128.108",
+      "responseTime": 0
+    },
+    {
+      "timestamp": "2025-03-25T06:31:52.888Z",
+      "method": "GET",
+      "path": "/admin/maintenance",
+      "status": 304,
+      "ip": "172.31.128.108",
+      "responseTime": 1
+    }
+  ]
+}

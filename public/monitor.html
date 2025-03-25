@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RoMap API - Monitor</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; }
+        h1, h2 { color: #333; }
+        #requests-container { margin-top: 20px; }
+        .request-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .success { background-color: #e6ffe6; }
+        .error { background-color: #ffe6e6; }
+        #stats { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .stat-box {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            width: 30%;
+            text-align: center;
+        }
+        .refresh-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>RoMap API Monitor</h1>
+    <a href="/admin">← Back to Admin</a>
+    
+    <div id="login-section">
+        <h2>Admin Login</h2>
+        <form id="login-form">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <p id="login-error" class="error"></p>
+        </form>
+    </div>
+    
+    <div id="monitor-section" style="display: none;">
+        <h2>Live API Monitor</h2>
+        <button id="refresh-button" class="refresh-button">Refresh Data</button>
+        
+        <div id="stats">
+            <div class="stat-box">
+                <h3>Total Requests</h3>
+                <div id="total-requests">0</div>
+            </div>
+            <div class="stat-box">
+                <h3>Success Rate</h3>
+                <div id="success-rate">0%</div>
+            </div>
+            <div class="stat-box">
+                <h3>Cache Hit Rate</h3>
+                <div id="cache-rate">0%</div>
+            </div>
+        </div>
+        
+        <h3>Recent Requests</h3>
+        <div id="requests-container">
+            <p>Loading request data...</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            try {
+                const response = await fetch('/admin/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Hide login, show monitor panel
+                    document.getElementById('login-section').style.display = 'none';
+                    document.getElementById('monitor-section').style.display = 'block';
+                    loadRequestData();
+                } else {
+                    document.getElementById('login-error').textContent = data.error || 'Login failed';
+                }
+            } catch (error) {
+                document.getElementById('login-error').textContent = 'Error connecting to server';
+            }
+        });
+        
+        document.getElementById('refresh-button').addEventListener('click', loadRequestData);
+        
+        async function loadRequestData() {
+            try {
+                const response = await fetch('/admin/monitor-data');
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Update stats
+                    document.getElementById('total-requests').textContent = data.totalRequests;
+                    document.getElementById('success-rate').textContent = data.successRate + '%';
+                    document.getElementById('cache-rate').textContent = data.cacheRate + '%';
+                    
+                    // Update request list
+                    const requestsContainer = document.getElementById('requests-container');
+                    requestsContainer.innerHTML = '';
+                    
+                    if (data.requests.length === 0) {
+                        requestsContainer.innerHTML = '<p>No requests logged yet</p>';
+                        return;
+                    }
+                    
+                    data.requests.forEach(req => {
+                        const requestItem = document.createElement('div');
+                        requestItem.className = `request-item ${req.status >= 400 ? 'error' : 'success'}`;
+                        
+                        requestItem.innerHTML = `
+                            <p><strong>Time:</strong> ${new Date(req.timestamp).toLocaleString()}</p>
+                            <p><strong>Path:</strong> ${req.path}</p>
+                            <p><strong>Method:</strong> ${req.method}</p>
+                            <p><strong>Status:</strong> ${req.status}</p>
+                            <p><strong>IP:</strong> ${req.ip}</p>
+                            <p><strong>Cache:</strong> ${req.cache || 'N/A'}</p>
+                            <p><strong>Response Time:</strong> ${req.responseTime}ms</p>
+                        `;
+                        
+                        requestsContainer.appendChild(requestItem);
+                    });
+                } else {
+                    alert('Error loading data: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                alert('Error connecting to server');
+            }
+        }
+        
+        // Auto-refresh every 30 seconds
+        setInterval(loadRequestData, 30000);
+    </script>
+</body>
+</html>
